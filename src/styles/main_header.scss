@@ -1,0 +1,39 @@
+@mixin flexBox($display,$justify,$align){
+    display: $display;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+
+
+.main__screen_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 150px 40px 0 40px;
+    z-index: 2;
+    font-size: 20px;
+}
+.right_block{
+    display: flex;
+    align-items: center;
+        div{
+            padding: 10px;
+        }
+}
+.left_block{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+        .image_user{
+            border-radius: 50%;
+            border: 1px solid #fff;
+           @include flexBox(flex,center,center);
+           margin-right: 15px;
+        }
+}
+.data-user{
+    @include flexBox(flex,center,center);
+    flex-direction: row-reverse;
+    padding-right:10px;
+}
