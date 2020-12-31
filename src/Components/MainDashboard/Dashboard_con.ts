@@ -13,7 +13,7 @@ let mapStateToProps = (state: AppState) : WrapperDash => {
     mainDash: state.reducerDashBoard.mainDash,
   };
 };
-debugger
+
 const DashBoardC = connect(mapStateToProps,{})(MainDashBoard);
 
 export default DashBoardC;

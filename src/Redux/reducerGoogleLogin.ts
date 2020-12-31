@@ -13,7 +13,7 @@ let initialState:IGoogleLogin  = {
 }
 
 const reducerGoogleLogin = (state:IGoogleLogin = initialState , action : IGoogleLoginAC )  =>{
-    debugger
+
     switch(action.type) {
             case GOOGLE_LOGIN_DATA : {
                 localStorage.setItem('SESSION_DATA', JSON.stringify(action.googleLogin));

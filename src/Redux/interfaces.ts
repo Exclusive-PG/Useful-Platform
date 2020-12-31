@@ -1,37 +1,76 @@
-import { OverridableComponent } from '@material-ui/core/OverridableComponent';
-import { SvgIconTypeMap } from '@material-ui/core';
-import { GOOGLE_LOGIN_DATA } from './types';
-
-
-
+import { OverridableComponent } from "@material-ui/core/OverridableComponent";
+import { SvgIconTypeMap } from "@material-ui/core";
+import { GOOGLE_LOGIN_DATA, COMPLETE_TODO_ITEM, ADD_NEW_TODO_ITEM, REMOVE_TODO_ITEM, REFRESH_INPUT_TODO, LOAD_TODO_ITEM } from "./types";
 
 export interface dashBoard {
-    id : number,
-    name : string,
-    url : OverridableComponent<SvgIconTypeMap<{}, "svg">> | string,
-    isMain : boolean,
-    action : string
+  id: number
+  name: string
+  url: OverridableComponent<SvgIconTypeMap<{}, "svg">> | string
+  isMain: boolean
+  action: string
 }
 
-export interface IGoogleLoginData{
-    userName : string ,
-    urlImage : string  , 
-    SignedTime : string , 
-    isLocalStorage : boolean
+export interface IGoogleLoginData {
+  userName: string
+  urlImage: string
+  SignedTime: string
+  isLocalStorage: boolean
 }
 
-
-export interface IGoogleLogin{
-    googleLogin : IGoogleLoginData
+export interface IGoogleLogin {
+  googleLogin: IGoogleLoginData
 }
 
-
-export interface WrapperDash
-{
-    mainDash : Array<dashBoard>;
+export interface WrapperDash {
+  mainDash: Array<dashBoard>
 }
 
 export interface IGoogleLoginAC {
-    type : typeof GOOGLE_LOGIN_DATA,
-    googleLogin : IGoogleLoginData
+  type: typeof GOOGLE_LOGIN_DATA
+  googleLogin: IGoogleLoginData
 }
+
+///Start ToDO types ///////
+
+export interface IToDo {
+  id: string
+  contentToDo: string
+  completed: boolean
+  dateAdded : string 
+}
+export interface StateToDo {
+  todo: Array<IToDo>
+  inputTodo:string
+}
+
+
+// export interface completedTodoAC {
+//   id: string
+//   //completed : boolean
+// }
+
+export interface ActionCompletedTodo{
+  type : typeof COMPLETE_TODO_ITEM
+  id:string
+ // completed : boolean
+}
+
+export interface ActionAddTodo{
+  type : typeof ADD_NEW_TODO_ITEM
+  inputTodo:string
+}
+export interface ActionRemoveTodo{
+  type : typeof REMOVE_TODO_ITEM
+  id:string
+}
+export interface RefreshInput {
+  type : typeof REFRESH_INPUT_TODO
+  inputTodo:string
+}
+export interface LoadTodo {
+  type : typeof LOAD_TODO_ITEM,
+  local : Array<IToDo>
+}
+
+export type Actions = ActionAddTodo & ActionCompletedTodo & ActionRemoveTodo & RefreshInput & LoadTodo;
+///End ToDO types ///////

@@ -5,6 +5,9 @@ import {GoogleLogin, GoogleLoginResponse} from 'react-google-login';
 import { ClientID } from './../../api/api';
 import { PropsHeader } from './headerC';
 import { IGoogleLoginData } from '../../Redux/interfaces';
+import { Avatar } from '@material-ui/core';
+import { getDate } from '../../Redux/Global_functions';
+
 
 
 
@@ -12,23 +15,8 @@ import { IGoogleLoginData } from '../../Redux/interfaces';
 
 
 const Header:React.FC<PropsHeader> = ({googleLogin,GoogleAC}) =>{
-
-debugger
     //hook get date //DATE
     const [date , setDate] = useState<string>("00:00");
-
-    const getDate = ():string =>{
-    
-        let date:Date = new Date();
-        let hours :string | number = date.getHours();
-        let minutes :string | number = date.getMinutes();
-      
-      
-         hours = (hours < 10) ?  `0${hours}` : hours;
-         minutes =  (minutes < 10) ?  `0${minutes}` : minutes;
-      
-        return `${hours}:${minutes}`;
-      }
 
 
       useEffect(()=>{
@@ -39,18 +27,6 @@ debugger
      },[]);
 
 
-/// Load Google Account from LocalStorage
-     useEffect(()=>{
-         
-if(localStorage.getItem("SESSION_DATA")){
-
-    let data:IGoogleLoginData = JSON.parse(localStorage.getItem("SESSION_DATA")!);
-    
-    GoogleAC(data);
-    
-    }   
-     },[])
-
 ////End Date ------------------------------------
 
 
@@ -60,8 +36,6 @@ const responseGoogle =(response : GoogleLoginResponse) : void  =>{
 
     console.log(response.getBasicProfile().getEmail());
     const {name , imageUrl} = response.profileObj;
-    
-    
 
 /////  dispatch data Google Login ///
 
@@ -69,14 +43,24 @@ const responseGoogle =(response : GoogleLoginResponse) : void  =>{
        userName: name,urlImage : imageUrl,SignedTime : Date.now().toString(),isLocalStorage : true
     });
 
-   
-
     console.log(response);
     console.log(`Sign in account : ${getDate()}`);
 }
 
 
 
+/// Load Google Account from LocalStorage
+useEffect(()=>{
+         
+    if(localStorage.getItem("SESSION_DATA")){
+    
+        let data:IGoogleLoginData = JSON.parse(localStorage.getItem("SESSION_DATA")!);
+        
+        GoogleAC(data);
+        
+        }   
+         },[])
+    
 
     return(
         <header className = "main__screen_header">
@@ -87,7 +71,7 @@ const responseGoogle =(response : GoogleLoginResponse) : void  =>{
         
         <div className="data-user">
         <div className="nickname_user">{googleLogin.userName}</div>
-        <div >{googleLogin.urlImage ? <img className="image_user" src = {googleLogin.urlImage} ></img> : <Person style = {{fontSize : 40,color:"primary"}}/> }</div>
+        <div >{googleLogin.urlImage ? <Avatar alt={googleLogin.userName} src= {googleLogin.urlImage} style ={{marginRight:10 , width:80,height:80}} /> : <Person style = {{fontSize : 40,color:"primary"}}/> }</div>
         </div>
 
 

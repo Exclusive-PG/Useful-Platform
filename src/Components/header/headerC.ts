@@ -4,7 +4,7 @@ import { AppState } from "../../Redux/store";
 import { IGoogleLogin, IGoogleLoginData } from "../../Redux/interfaces";
 import { updateDataUserGoogleAC } from './../../Redux/reducerGoogleLogin';
 import { Dispatch } from "redux";
-import { IGoogleLoginAC } from './../../Redux/interfaces';
+
 
 
 type propsAC = {
