@@ -1,10 +1,10 @@
-Exclusive Platform (React + Redux + Typescript)
+### `Exclusive Platform (React + Redux + Typescript)`
 
-Platform consist of 6 apps:
+## Platform consist of 6 apps:
 
-*Weather App
-*Exchange Rates
-*Todo List
-*Search Films
-*Fresh News
-*Radio Station
+* Weather App
+* Exchange Rates
+* Todo List
+* Search Films
+* Fresh News
+* Radio Station
