@@ -1,7 +1,6 @@
 Exclusive Platform (React + Redux + Typescript)
 
-Platform consist of 6 app:
-
+Platform consist of 6 apps:
 
 *Weather App
 *Exchange Rates
