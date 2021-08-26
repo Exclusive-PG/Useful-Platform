@@ -106,6 +106,7 @@ const ToDoList = () => {
   const RefreshInputTodo = (event:React.ChangeEvent<HTMLInputElement>) => {
 
       dispatch(RefreshInput(event.target.value));
+     
   }
 
 

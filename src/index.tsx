@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './Redux/store';
 import {BrowserRouter as Router} from 'react-router-dom';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 ReactDOM.render(
  <React.StrictMode>

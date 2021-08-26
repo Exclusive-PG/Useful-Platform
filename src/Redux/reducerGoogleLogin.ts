@@ -1,11 +1,11 @@
 import { IGoogleLogin, IGoogleLoginAC, IGoogleLoginData } from "./interfaces";
 import { GOOGLE_LOGIN_DATA } from './types';
 
-
+export const STATIC_USERNAME_GOOGLE = "User";
 
 let initialState:IGoogleLogin  = {
     googleLogin : {
-        userName : "User" , 
+        userName : STATIC_USERNAME_GOOGLE , 
         urlImage : "" ,
         SignedTime :  "",
         isLocalStorage : false,

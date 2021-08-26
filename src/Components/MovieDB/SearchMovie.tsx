@@ -8,6 +8,7 @@ import axios from 'axios';
 import { API_MOVIES } from '../../api/api';
 import { Context } from '../context.js';
 import HomeIcon from '@material-ui/icons/Home';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -63,7 +64,7 @@ else{
 
     const [searchText,setSearchText] = useState<string>("");
 
-    const classes = useStyles();
+   const classes = useStyles();
 
     
     return(

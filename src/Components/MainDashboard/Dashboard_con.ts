@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import MainDashBoard from "./../MainDashboard";
+import MainDashBoard from "../MainDashBoard";
 import { AppState } from "../../Redux/store";
 import { WrapperDash } from './../../Redux/interfaces';
 

@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     grid-row: 1/3;
-
+    transition: .3s all ease;
 
 }
 .grid{
@@ -16,7 +16,7 @@
     grid-gap: 10px;
     text-align: center;
 }
-.grid > a{
+ a{
     list-style: none;
     text-decoration: none;
     color : #fff;   
@@ -29,9 +29,48 @@
     grid-template-rows: minmax(100px,150px);
     background-color: #000;
     max-height: 150px;
+    transition: .3s all ease;
 }
+.section:hover,.main_section:hover,.app_two_row:hover{
+    transform: translateY(-10px)
+}
+
+
 .name_section{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+i{
+    transition: .3s all ease;
+}
+.section:hover i ,.main_section:hover i ,.app_two_row:hover i {
+
+    transform: scale(1.3);
+}
+
+.two_row_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    padding: 25px 0;
+}
+.app_two_row{
+    width: 50%;
+    transition: .2s all ease;
+    padding: 125px 0px;
+    margin: 10px; 
+    text-align: center;
+ 
+}
+
+.newsApp{
+    background-color: #F1C40F;
+
+}
+.radioApp{
+    background-color: #F39C12 ;
+}
+
+

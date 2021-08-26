@@ -1,0 +1,65 @@
+.wrapper_radio {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.main_grid{
+    /* background-color: #fff; */
+    display: grid;  
+    grid-template-columns: repeat(3,1fr);
+    padding: 10px;
+    grid-gap: 5px;
+}
+
+.grid_elem_station{
+    background-color: rgba(0, 0, 0, .7);
+    max-width: 200px;
+    width: 100%;
+    min-height: 185px;
+    transition: .3s all ;
+}
+
+
+.grid_elem_station:hover .grid_elem_inner{
+    /* animation: AnimIcon .8s infinite ease-out alternate-reverse; */
+    transform: scale(1.5);
+}
+
+
+.btn_play{
+    cursor: pointer;
+
+    /* border: 1px solid #000; */
+    border-radius: 50%;
+    /* background-color: #ff0000; */
+}
+
+.flex_separate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1;
+       
+}
+
+.grid_elem_inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    transition: .2s all ;
+}
+.flex_separate > div {
+    width: 100%;
+}
+
+@keyframes AnimIcon {
+    0%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}

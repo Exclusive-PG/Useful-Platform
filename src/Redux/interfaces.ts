@@ -7,15 +7,24 @@ import {
   REMOVE_TODO_ITEM,
   REFRESH_INPUT_TODO,
   LOAD_TODO_ITEM,
+  PLAY_NOW,
+  PLAY_OR_STOP,
 } from "./types";
 
 export interface dashBoard {
   id: number;
   name: string;
-  url: OverridableComponent<SvgIconTypeMap<{}, "svg">> | string;
+  url: string;
   isMain: boolean;
   action: string;
+  styleDashBoard : styleDashBoard;
 }
+
+interface styleDashBoard{
+  color: string;
+  background : string;
+}
+
 
 export interface IGoogleLoginData {
   userName: string;
@@ -78,11 +87,25 @@ export interface LoadTodo {
   local: Array<IToDo>;
 }
 
+
+
+
+export interface ActionPlayNowRS{
+  type: typeof PLAY_NOW;
+  data : RadioStation 
+}
+
+export interface ActionPlayOrPauseRS{
+  type : typeof PLAY_OR_STOP ;
+  //isPlaying : RadionStationIsPlaying
+}
+
 export type Actions = ActionAddTodo &
   ActionCompletedTodo &
   ActionRemoveTodo &
   RefreshInput &
-  LoadTodo;
+  LoadTodo & ActionPlayNowRS & ActionPlayOrPauseRS;
+
 ///End ToDO types ///////
 
 /////CHANGE LANGUAGES TYPE //////
@@ -138,4 +161,23 @@ export interface IExchangeRates {
   base :string;
   conversion_rates: {[index:string]:any};
   time_last_update_utc: string;
+}
+
+//radio stations
+
+export interface RadionStationStyle {
+  color?:string,
+  background:string
+}
+
+export interface RadioStation{
+  name:string,
+  stream : string,
+  style:RadionStationStyle
+  selected : boolean,
+  
+}
+export interface IRadioStations{
+ data :Array<RadioStation> 
+ playNow : RadioStation
 }

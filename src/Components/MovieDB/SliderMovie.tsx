@@ -17,7 +17,7 @@ const SliderMovie:React.FC = ()=>{
     const {en} = useSelector((state:AppState)=>state.ChangeLanguageReducer);
     const {ru} = useSelector((state:AppState)=>state.ChangeLanguageReducer);
 
-const [language,setLanguage ]  = useState<string>("ru");
+const [language,setLanguage ]  = useState<string>("en");
 const [moviesTop,setMoviesTop] = useState<IMovies[]>([]);
 const[sliderPosition,setsliderPosition] = useState<number>(0);
 
